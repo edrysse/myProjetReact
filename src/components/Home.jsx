@@ -5,6 +5,7 @@ import HomeProducts from './HomeProcducts'
 const Home = () => {
     return (
         <div className='mybg'>
+            
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" styke>
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -36,7 +37,7 @@ const Home = () => {
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-                        <HomeProducts/>
+                        <Product/>
                     </div>
                     )
 }

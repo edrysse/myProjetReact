@@ -5,7 +5,7 @@ const Product = () => {
 
     const cardItem = (item) => {
         return (
-            <div class="card my-5 py-4 " key={item.id} style={{width: "18rem"}}>
+            <div class="card my-5 py-4 " key={item.id} style={{width: "15rem"}}>
                 <img src={item.img} class="card-img-top" alt={item.title}/>
                     <div class="card-body text-center">
                         <h5 class="card-title">{item.title}</h5>

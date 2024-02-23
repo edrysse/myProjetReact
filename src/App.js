@@ -9,14 +9,29 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ProductDetail from './components/ProductDetail';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout'
+import Home2 from './components/Home2';
 
 function App() {
   return (
     <BrowserRouter>
+   
     <Header/>
       <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/products" element={<Product/>} />
+        {/* <Route path="/home2" element={<Home2/>} /> */}
+
+        <Route path="/" element={<Home/>}/>
+   
+   
+        
+
+
+
+
+
+
+
+
+        <Route path="/products" element={<div><Product/></div>} />
         <Route path="/products/:id" element={<ProductDetail/>} />
         <Route path="/cart" element={<Cart/>} />
         <Route path="/checkout" element={<Checkout/>} />

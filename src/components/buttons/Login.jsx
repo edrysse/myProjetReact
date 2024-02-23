@@ -1,7 +1,37 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useState } from 'react'
 
 const Login = () => {
+    
+const [email,setemail]=useState('')
+const [password,setpassword]=useState('')
+
+
+
+const handleLogin = async (e) => {
+    
+    e.preventDefault();
+  
+    if (email !== '' && password !== '') {
+        try {
+            const res = await axios.post('https://royalchicapi-cc1c56c683bf.herokuapp.com/api/adminLogin', {
+                email,
+                password,
+            });
+            
+            if (res.status === 200) {
+                console.log("You are connected")
+                setTimeout(function(){window.location.reload()}, 1500)
+
+            }
+            
+        } catch (error) {
+            console.error('Error logging in:', error.message);
+        }
+    }
+  };
     return (
+        
         <>
             {/* <!-- Button trigger modal --> */}
             <button type="button" className="btn btn-outline-primary ms-auto" data-bs-toggle="modal" data-bs-target="#loginModal">
@@ -23,15 +53,15 @@ const Login = () => {
                             <button className="btn btn-primary w-100 mb-4">
                                <span className="fa fa-facebook me-2"></span> Sign in With Facebook
                             </button>
-                            <form>
+                            <form onSubmit={handleLogin}>
                                 <div className="mb-3">
                                     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+                                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={(e)=>{setemail(e.target.value)}} />
                                         <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
   </div>
                                     <div className="mb-3">
                                         <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                                        <input type="password" className="form-control" id="exampleInputPassword1"/>
+                                        <input type="password" className="form-control" id="exampleInputPassword1" onChange={(e)=>{setpassword(e.target.value)}}/>
   </div>
                                         <div className="mb-3 form-check">
                                             <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
